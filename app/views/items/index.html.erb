@@ -1,0 +1,28 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Value</th>
+    <th>List</th>
+    <th>User</th>
+  </tr>
+
+<% @items.each do |items| %>
+  <tr>
+    <td><%=h items.title %></td>
+    <td><%=h items.description %></td>
+    <td><%=h items.value %></td>
+    <td><%=h items.list_id %></td>
+    <td><%=h items.user_id %></td>
+    <td><%= link_to 'Show', items %></td>
+    <td><%= link_to 'Edit', edit_items_path(items) %></td>
+    <td><%= link_to 'Destroy', items, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New items', new_items_path %>

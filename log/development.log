@@ -1,0 +1,1114 @@
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (188.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (234.0ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateLists (20090525015409)
+  [4;35;1mSQL (62.0ms)[0m   [0mCREATE TABLE `lists` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (93.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090525015409')[0m
+Migrating to CreateItems (20090525015610)
+  [4;35;1mSQL (94.0ms)[0m   [0mCREATE TABLE `items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `description` text, `value` int(11), `list_id` int(11), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (78.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090525015610')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mdescribe `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `lists`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `lists`[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-24 21:59:39) [GET]
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: lists: SELECT * FROM "lists" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: lists: SELECT * FROM "lists" ):
+  app/controllers/lists_controller.rb:5:in `index'
+
+Rendered rescues/_trace (328.0ms)
+Rendered rescues/_request_and_response (15.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-24 22:00:56) [GET]
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+Completed in 1969ms (View: 1953, DB: 0) | 200 OK [http://localhost/lists/]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#new (for 127.0.0.1 at 2009-05-24 22:01:02) [GET]
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Rendering template within layouts/lists
+Rendering lists/new
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/lists/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#create (for 127.0.0.1 at 2009-05-24 22:02:46) [POST]
+  Parameters: {"list"=>{"name"=>"Ideas", "description"=>"A List for ideas to implement, etc.", "user_id"=>""}, "commit"=>"Create", "authenticity_token"=>"fL1H5oB6sJDDOXNPY9EtmhD8ICW/Y/cYDFlcQo8nEKA="}
+  [4;36;1mList Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mList Create (0.0ms)[0m   [0;1mINSERT INTO `lists` (`name`, `updated_at`, `description`, `user_id`, `created_at`) VALUES('Ideas', '2009-05-25 02:02:46', 'A List for ideas to implement, etc.', NULL, '2009-05-25 02:02:46')[0m
+  [4;35;1mSQL (78.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 578ms (DB: 93) | 302 Found [http://localhost/lists]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:02:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (16.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+Completed in 47ms (View: 15, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-24 22:02:49) [GET]
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;35;1mList Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-24 22:21:18) [GET]
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;35;1mList Columns (31.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 485ms (View: 0, DB: 31) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:21:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+
+ActionView::TemplateError (undefined method `list_items_path' for #<ActionView::Base:0x2ce75dc>) on line #19 of app/views/lists/show.html.erb:
+16:   <%= render :partial => @list.items %>
+17: </div>
+18: 
+19: <% remote_form_for [@list, Item.new] do |f| %>
+20:   <p>
+21:     <%= f.label :title, "New Item" %><br />
+22:     <%= f.text_field :title %>
+
+    app/views/lists/show.html.erb:19
+    app/controllers/lists_controller.rb:18:in `show'
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-24 22:23:22) [GET]
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 47ms (View: 15, DB: 0) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:23:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (15.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 78ms (View: 32, DB: 31) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-05-24 22:23:53) [POST]
+  Parameters: {"commit"=>"Add Item", "authenticity_token"=>"fL1H5oB6sJDDOXNPY9EtmhD8ICW/Y/cYDFlcQo8nEKA=", "list_id"=>"1", "item"=>{"title"=>"Prayer Tool", "value"=>"5", "description"=>"A Prayer tool for students to use."}}
+  [4;36;1mList Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Create (0.0ms)[0m   [0;1mINSERT INTO `items` (`updated_at`, `title`, `description`, `value`, `list_id`, `user_id`, `created_at`) VALUES('2009-05-25 02:23:53', 'Prayer Tool', 'A Prayer tool for students to use.', 5, 1, NULL, '2009-05-25 02:23:53')[0m
+  [4;35;1mSQL (78.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 172ms (DB: 109) | 302 Found [http://localhost/lists/1/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:23:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Completed in 63ms (View: 47, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-05-24 22:24:40) [POST]
+  Parameters: {"commit"=>"Add Item", "authenticity_token"=>"fL1H5oB6sJDDOXNPY9EtmhD8ICW/Y/cYDFlcQo8nEKA=", "list_id"=>"1", "item"=>{"title"=>"Translation Market", "value"=>"10", "description"=>"A Site for Document translations to be requested, voted on, and supported."}}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Create (0.0ms)[0m   [0;1mINSERT INTO `items` (`updated_at`, `title`, `description`, `value`, `list_id`, `user_id`, `created_at`) VALUES('2009-05-25 02:24:40', 'Translation Market', 'A Site for Document translations to be requested, voted on, and supported.', 10, 1, NULL, '2009-05-25 02:24:40')[0m
+  [4;35;1mSQL (469.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 500ms (DB: 469) | 302 Found [http://localhost/lists/1/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:24:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-24 22:25:00) [GET]
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-24 22:25:02) [GET]
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 46ms (View: 15, DB: 0) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#new (for 127.0.0.1 at 2009-05-24 22:25:07) [GET]
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Rendering template within layouts/lists
+Rendering lists/new
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/lists/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#create (for 127.0.0.1 at 2009-05-24 22:25:44) [POST]
+  Parameters: {"list"=>{"name"=>"HRDB Porting", "description"=>"Tasks to be completed for to ensure the CMT has all the capabilities of the HRDB."}, "commit"=>"Create", "authenticity_token"=>"fL1H5oB6sJDDOXNPY9EtmhD8ICW/Y/cYDFlcQo8nEKA="}
+  [4;35;1mList Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mList Create (0.0ms)[0m   [0mINSERT INTO `lists` (`name`, `updated_at`, `description`, `user_id`, `created_at`) VALUES('HRDB Porting', '2009-05-25 02:25:44', 'Tasks to be completed for to ensure the CMT has all the capabilities of the HRDB.', NULL, '2009-05-25 02:25:44')[0m
+  [4;36;1mSQL (422.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/lists/2
+Completed in 469ms (DB: 437) | 302 Found [http://localhost/lists]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:25:45) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 2) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/lists/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-05-24 22:26:45) [POST]
+  Parameters: {"commit"=>"Add Item", "authenticity_token"=>"fL1H5oB6sJDDOXNPY9EtmhD8ICW/Y/cYDFlcQo8nEKA=", "list_id"=>"2", "item"=>{"title"=>"Research existing functionality", "value"=>"10", "description"=>"Research existing HRDB functionality present in the CMT."}}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (16.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (0.0ms)[0m   [0mINSERT INTO `items` (`updated_at`, `title`, `description`, `value`, `list_id`, `user_id`, `created_at`) VALUES('2009-05-25 02:26:46', 'Research existing functionality', 'Research existing HRDB functionality present in the CMT.', 10, 2, NULL, '2009-05-25 02:26:46')[0m
+  [4;36;1mSQL (437.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/lists/2
+Completed in 500ms (DB: 453) | 302 Found [http://localhost/lists/2/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:26:46) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mList Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 2) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/lists/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-24 22:26:47) [GET]
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/lists]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:26:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 78ms (View: 47, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:26:55) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 2) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Completed in 312ms (View: 281, DB: 0) | 200 OK [http://localhost/lists/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:26:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 94ms (View: 62, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:27:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+
+ActionView::TemplateError (Missing template items/_item.erb in view path app/views) on line #16 of app/views/lists/show.html.erb:
+13: 
+14: <h2>Items</h2>
+15: <div id="items">
+16:   <%= render :partial => @list.items %>
+17: </div>
+18: 
+19: <% remote_form_for [@list, Item.new] do |f| %>
+
+    app/views/lists/show.html.erb:16
+    app/controllers/lists_controller.rb:18:in `show'
+
+Rendered rescues/_trace (140.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:29:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 234ms (View: 140, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:37:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+
+ActionView::TemplateError (undefined method `find' for #<List:0x498674c>) on line #16 of app/views/lists/show.html.erb:
+13: 
+14: <h2>Items</h2>
+15: <div id="items">
+16:   <%= render(:partial => @list.find(:all)) %>
+17: </div>
+18: 
+19: <% remote_form_for [@list, Item.new] do |f| %>
+
+    app/views/lists/show.html.erb:16
+    app/controllers/lists_controller.rb:18:in `show'
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:37:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (375.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+ERROR: compiling _run_erb_app47views47lists47show46html46erb RAISED compile error
+C:/Projects/rails/onething/app/views/lists/show.html.erb:16: syntax error, unexpected ';', expecting ')'
+...artial => @list.items ).to_s); @output_buffer.concat "\n"
+                              ^
+Function body:           def _run_erb_app47views47lists47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>Name:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @list.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>Description:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @list.description ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Edit', edit_list_path(@list) ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Back', lists_path ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<h2>Items</h2>\n"
+@output_buffer.concat "<div id=\"items\">\n"
+@output_buffer.concat "  "; @output_buffer.concat(( render(:partial => @list.items ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat "\n"
+ remote_form_for [@list, Item.new] do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :title, "New Item" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :title ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :description, "Description" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_area :description ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :value, "Value" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :value ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>"; @output_buffer.concat(( f.submit "Add Item" ).to_s); @output_buffer.concat "</p>\n"
+ end ; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/Projects/rails/onething/app/views/lists/show.html.erb:36:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+C:/Projects/rails/onething/app/controllers/lists_controller.rb:18:in `show'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/Projects/rails/onething/app/views/lists/show.html.erb:16: syntax error, unexpected ';', expecting ')'
+...artial => @list.items ).to_s); @output_buffer.concat "\n"
+                              ^) on line #16 of app/views/lists/show.html.erb:
+13: 
+14: <h2>Items</h2>
+15: <div id="items">
+16:   <%= render(:partial => @list.items %>
+17: </div>
+18: 
+19: <% remote_form_for [@list, Item.new] do |f| %>
+
+    app/views/lists/show.html.erb:36:in `compile!'
+    app/controllers/lists_controller.rb:18:in `show'
+
+Rendered rescues/_trace (188.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:37:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 204ms (View: 125, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:38:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+
+ActionView::TemplateError (undefined method `find' for #<List:0x4bf4b50>) on line #16 of app/views/lists/show.html.erb:
+13: 
+14: <h2>Items</h2>
+15: <div id="items">
+16:   <%= render(:partial => (@list).find(:all)) %>
+17: </div>
+18: 
+19: <% remote_form_for [@list, Item.new] do |f| %>
+
+    app/views/lists/show.html.erb:16
+    app/controllers/lists_controller.rb:18:in `show'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:38:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 94ms (View: 47, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:40:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+
+ActionView::TemplateError (undefined method `sort_order' for #<ActionView::Base:0x4a2c868>) on line #16 of app/views/lists/show.html.erb:
+13: 
+14: <h2>Items</h2>
+15: <div id="items">
+16:   <%= render(:partial => @list.items, :order => sort_order('value')) %>
+17: </div>
+18: 
+19: <% remote_form_for [@list, Item.new] do |f| %>
+
+    app/views/lists/show.html.erb:16
+    app/controllers/lists_controller.rb:18:in `show'
+
+Rendered rescues/_trace (235.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:40:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 94ms (View: 47, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:40:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 109ms (View: 78, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:40:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 94ms (View: 62, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:40:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (16.0ms)
+Completed in 110ms (View: 48, DB: 30) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:41:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 94ms (View: 63, DB: 15) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:41:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 94ms (View: 63, DB: 15) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:41:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 93ms (View: 62, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:41:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+
+ActionView::TemplateError (undefined method `sort_order' for #<ActionView::Base:0x495c2bc>) on line #16 of app/views/lists/show.html.erb:
+13: 
+14: <h2>Items</h2>
+15: <div id="items">
+16:   <%= render(:partial => @list.items, :order => sort_order('value')) %>
+17: </div>
+18: 
+19: <% remote_form_for [@list, Item.new] do |f| %>
+
+    app/views/lists/show.html.erb:16
+    app/controllers/lists_controller.rb:18:in `show'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:41:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:42:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+
+ActionView::TemplateError (wrong number of arguments (2 for 1)) on line #16 of app/views/lists/show.html.erb:
+13: 
+14: <h2>Items</h2>
+15: <div id="items">
+16:   <%= render(:partial => @list.items, :order => sort_order('value','down')) %>
+17: </div>
+18: 
+19: <% remote_form_for [@list, Item.new] do |f| %>
+
+    app/views/lists/show.html.erb:16:in `sort_order'
+    app/views/lists/show.html.erb:16
+    app/controllers/lists_controller.rb:18:in `show'
+
+Rendered rescues/_trace (234.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:43:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+
+ActionView::TemplateError (wrong number of arguments (2 for 1)) on line #16 of app/views/lists/show.html.erb:
+13: 
+14: <h2>Items</h2>
+15: <div id="items">
+16:   <%= render(:partial => @list.items, :order => sort_order('value','down')) %>
+17: </div>
+18: 
+19: <% remote_form_for [@list, Item.new] do |f| %>
+
+    app/views/lists/show.html.erb:16:in `sort_order'
+    app/views/lists/show.html.erb:16
+    app/controllers/lists_controller.rb:18:in `show'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:44:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (16.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+ERROR: compiling _run_erb_app47views47lists47show46html46erb RAISED compile error
+C:/Projects/rails/onething/app/views/lists/show.html.erb:16: syntax error, unexpected ')', expecting '}'
+...t_order('value',{:d => 'down')}) ).to_s); @output_buffer.con...
+                              ^
+Function body:           def _run_erb_app47views47lists47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>Name:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @list.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<p>\n"
+@output_buffer.concat "  <b>Description:</b>\n"
+@output_buffer.concat "  "; @output_buffer.concat((h @list.description ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</p>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Edit', edit_list_path(@list) ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Back', lists_path ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<h2>Items</h2>\n"
+@output_buffer.concat "<div id=\"items\">\n"
+@output_buffer.concat "  "; @output_buffer.concat(( render(:partial => @list.items, :order => sort_order('value',{:d => 'down')}) ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat "\n"
+ remote_form_for [@list, Item.new] do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :title, "New Item" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :title ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :description, "Description" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_area :description ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :value, "Value" ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :value ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>"; @output_buffer.concat(( f.submit "Add Item" ).to_s); @output_buffer.concat "</p>\n"
+ end ; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/Projects/rails/onething/app/views/lists/show.html.erb:36:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+C:/Projects/rails/onething/app/controllers/lists_controller.rb:18:in `show'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+C:/Ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/Projects/rails/onething/app/views/lists/show.html.erb:16: syntax error, unexpected ')', expecting '}'
+...t_order('value',{:d => 'down')}) ).to_s); @output_buffer.con...
+                              ^) on line #16 of app/views/lists/show.html.erb:
+13: 
+14: <h2>Items</h2>
+15: <div id="items">
+16:   <%= render(:partial => @list.items, :order => sort_order('value',{:d => 'down')}) %>
+17: </div>
+18: 
+19: <% remote_form_for [@list, Item.new] do |f| %>
+
+    app/views/lists/show.html.erb:36:in `compile!'
+    app/controllers/lists_controller.rb:18:in `show'
+
+Rendered rescues/_trace (297.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:44:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+
+ActionView::TemplateError (wrong number of arguments (2 for 1)) on line #16 of app/views/lists/show.html.erb:
+13: 
+14: <h2>Items</h2>
+15: <div id="items">
+16:   <%= render(:partial => @list.items, :order => sort_order('value',{:d => 'down'})) %>
+17: </div>
+18: 
+19: <% remote_form_for [@list, Item.new] do |f| %>
+
+    app/views/lists/show.html.erb:16:in `sort_order'
+    app/views/lists/show.html.erb:16
+    app/controllers/lists_controller.rb:18:in `show'
+
+Rendered rescues/_trace (141.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:45:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 78ms (View: 47, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:45:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (281.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 375ms (View: 63, DB: 281) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:45:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (16.0ms)
+Completed in 235ms (View: 173, DB: 15) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:45:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 63ms (View: 47, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-24 22:49:26) [GET]
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;36;1mList Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhost/lists]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-24 22:49:28) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 2) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Completed in 94ms (View: 63, DB: 0) | 200 OK [http://localhost/lists/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-24 22:51:10) [GET]
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/lists]

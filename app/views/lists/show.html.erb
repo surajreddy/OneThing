@@ -1,0 +1,33 @@
+<p>
+  <b>Name:</b>
+  <%=h @list.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @list.description %>
+</p>
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>
+
+<h2>Items</h2>
+<div id="items">
+  <%= render(:partial => @list.items) %>
+</div>
+
+<% remote_form_for [@list, Item.new] do |f| %>
+  <p>
+    <%= f.label :title, "New Item" %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description, "Description" %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :value, "Value" %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p><%= f.submit "Add Item" %></p>
+<% end %>
