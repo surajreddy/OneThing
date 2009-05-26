@@ -13,7 +13,9 @@
 
 <h2>Items</h2>
 <div id="items">
-  <%= render(:partial => @list.items) %>
+  <table border="1">
+    <%= render(:partial => @list.items) %>
+  </table>
 </div>
 
 <% remote_form_for [@list, Item.new] do |f| %>

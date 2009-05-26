@@ -1,5 +1,11 @@
-<% div_for item do %>
-  <p>
-    <strong>Value <%= item.value %></strong> - <%=h item.title %>
-  </p>
+<% div_for item do %>    
+      <tr>
+        <td>
+          <strong>Value <%= item.value %></strong>
+        </td>
+        <td>        
+          <strong><%=h item.title %></strong><br />
+          <%=h item.description %>
+        </td>
+      </tr>
 <% end %>

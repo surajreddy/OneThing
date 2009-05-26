@@ -1112,3 +1112,486 @@ Rendering template within layouts/lists
 Rendering lists/index
   [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
 Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-26 17:00:36) [GET]
+  [4;36;1mList Load (375.0ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 3047ms (View: 2625, DB: 375) | 200 OK [http://localhost/lists/]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2009-05-26 17:00:47) [GET]
+Rendering template within layouts/items
+Rendering items/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #12 of app/views/items/index.html.erb:
+9:     <th>User</th>
+10:   </tr>
+11: 
+12: <% @items.each do |items| %>
+13:   <tr>
+14:     <td><%=h items.title %></td>
+15:     <td><%=h items.description %></td>
+
+    app/views/items/index.html.erb:12
+
+Rendered rescues/_trace (125.0ms)
+Rendered rescues/_request_and_response (16.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:01:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 562ms (View: 500, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:02:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:02:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 188ms (View: 126, DB: 30) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:04:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (15.0ms)
+Rendered items/_item (0.0ms)
+Completed in 62ms (View: 15, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:05:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (16.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 94ms (View: 47, DB: 31) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:07:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (15.0ms)
+Rendered items/_item (0.0ms)
+Completed in 125ms (View: 78, DB: 32) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:08:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 109ms (View: 78, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:09:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (16.0ms)
+Rendered items/_item (0.0ms)
+Completed in 203ms (View: 142, DB: 15) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:09:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (15.0ms)
+Rendered items/_item (0.0ms)
+Completed in 156ms (View: 109, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:10:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 406ms (View: 281, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:11:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 344ms (View: 297, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:12:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (16.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (15.0ms)
+Rendered items/_item (0.0ms)
+Completed in 141ms (View: 78, DB: 48) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:12:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (328.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 422ms (View: 78, DB: 328) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:13:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 78ms (View: 32, DB: 15) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:13:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (16.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (16.0ms)
+Rendered items/_item (0.0ms)
+Completed in 94ms (View: 47, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:14:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (15.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 204ms (View: 157, DB: 15) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:15:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 93ms (View: 47, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:16:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 406ms (View: 344, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:17:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 297ms (View: 250, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:17:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (15.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (16.0ms)
+Rendered items/_item (0.0ms)
+Completed in 140ms (View: 94, DB: 15) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:17:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (15.0ms)
+Rendered items/_item (0.0ms)
+Completed in 218ms (View: 171, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:18:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 110ms (View: 63, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:26:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (265.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (16.0ms)
+Rendered items/_item (0.0ms)
+Completed in 438ms (View: 110, DB: 265) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:27:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 94ms (View: 62, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:27:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (156.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 219ms (View: 47, DB: 156) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:28:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 375ms (View: 234, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:28:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (312.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 625ms (View: 48, DB: 328) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:28:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (16.0ms)
+Rendered items/_item (0.0ms)
+Completed in 125ms (View: 94, DB: 15) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:33:56) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 2) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Completed in 406ms (View: 250, DB: 0) | 200 OK [http://localhost/lists/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-26 17:34:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (32.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (15.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (31.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (32.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 344ms (View: 172, DB: 110) | 200 OK [http://localhost/lists/1]
