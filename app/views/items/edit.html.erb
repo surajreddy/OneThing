@@ -30,3 +30,19 @@
 
 <%= link_to 'Show', @items %> |
 <%= link_to 'Back', items_path %>
+
+<% remote_form_for [@list, Item.update] do |f| %>
+  <p>
+    <%= f.label :title, "New Item" %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description, "Description" %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :value, "Value" %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p><%= f.submit "Add Item" %></p>
+<% end %>
