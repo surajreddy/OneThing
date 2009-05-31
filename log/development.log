@@ -1595,3 +1595,348 @@ Rendering lists/show
 Rendered items/_item (0.0ms)
 Rendered items/_item (0.0ms)
 Completed in 344ms (View: 172, DB: 110) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (62.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (78.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateLists (20090525015409)
+Migrating to CreateItems (20090525015610)
+Migrating to CreateVotes (20090531222937)
+  [4;36;1mSQL (187.0ms)[0m   [0;1mCREATE TABLE `votes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `value` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (94.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090531222937')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mdescribe `items`[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mSHOW KEYS FROM `items`[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `lists`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `lists`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW FIELDS FROM `votes`[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mdescribe `votes`[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mSHOW KEYS FROM `votes`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateLists (20090525015409)
+Migrating to CreateItems (20090525015610)
+Migrating to CreateVotes (20090531222937)
+Migrating to CreateComments (20090531223652)
+  [4;36;1mSQL (437.0ms)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `item_id` int(11), `user_id` int(11), `body` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (63.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090531223652')[0m
+Migrating to AddItemIdToVotesTable (20090531223755)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (109.0ms)[0m   [0mCREATE TABLE `items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `description` text, `value` int(11), `list_id` int(11), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (94.0ms)[0m   [0mCREATE TABLE `lists` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (78.0ms)[0m   [0mCREATE TABLE `votes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `value` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (109.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (250.0ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (125.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090531222937')[0m
+  [4;36;1mSQL (157.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090525015409')[0m
+  [4;35;1mSQL (140.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090525015610')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateLists (20090525015409)
+Migrating to CreateItems (20090525015610)
+Migrating to CreateVotes (20090531222937)
+Migrating to CreateComments (20090531223652)
+  [4;36;1mSQL (437.0ms)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `item_id` int(11), `user_id` int(11), `body` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (63.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090531223652')[0m
+Migrating to AddItemIdToVotesTable (20090531223755)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateLists (20090525015409)
+Migrating to CreateItems (20090525015610)
+Migrating to CreateVotes (20090531222937)
+Migrating to CreateComments (20090531223652)
+Migrating to AddItemIdToVotesTable (20090531223755)
+  [4;36;1mSQL (594.0ms)[0m   [0;1mALTER TABLE `votes` ADD `item_id` int(11)[0m
+  [4;35;1mSQL (78.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090531223755')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `items`[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `lists`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW KEYS FROM `lists`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `votes`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `votes`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW KEYS FROM `votes`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-31 18:43:35) [GET]
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+Completed in 2438ms (View: 2250, DB: 0) | 200 OK [http://localhost/lists/]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#new (for 127.0.0.1 at 2009-05-31 18:44:15) [GET]
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Rendering template within layouts/lists
+Rendering lists/new
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/lists/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#create (for 127.0.0.1 at 2009-05-31 18:44:28) [POST]
+  Parameters: {"list"=>{"name"=>"Games to Buy", "description"=>"A Priority list of Games to buy."}, "commit"=>"Create", "authenticity_token"=>"pScXWCFSnmq6HZMZTzfnxwJegDEIYA6GXMKlXuDX5m0="}
+  [4;36;1mList Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mList Create (0.0ms)[0m   [0;1mINSERT INTO `lists` (`name`, `updated_at`, `description`, `user_id`, `created_at`) VALUES('Games to Buy', '2009-05-31 22:44:28', 'A Priority list of Games to buy.', NULL, '2009-05-31 22:44:28')[0m
+  [4;35;1mSQL (63.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 438ms (DB: 79) | 302 Found [http://localhost/lists]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-31 18:44:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 78ms (View: 62, DB: 16) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-05-31 18:44:44) [POST]
+  Parameters: {"commit"=>"Add Item", "authenticity_token"=>"pScXWCFSnmq6HZMZTzfnxwJegDEIYA6GXMKlXuDX5m0=", "list_id"=>"1", "item"=>{"title"=>"Final Fantasy", "value"=>"5", "description"=>"The entire series."}}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (15.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Create (0.0ms)[0m   [0;1mINSERT INTO `items` (`updated_at`, `title`, `description`, `value`, `list_id`, `user_id`, `created_at`) VALUES('2009-05-31 22:44:44', 'Final Fantasy', 'The entire series.', 5, 1, NULL, '2009-05-31 22:44:44')[0m
+  [4;35;1mSQL (485.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 609ms (DB: 500) | 302 Found [http://localhost/lists/1/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-31 18:44:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Completed in 172ms (View: 78, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-05-31 18:45:05) [POST]
+  Parameters: {"commit"=>"Add Item", "authenticity_token"=>"pScXWCFSnmq6HZMZTzfnxwJegDEIYA6GXMKlXuDX5m0=", "list_id"=>"1", "item"=>{"title"=>"Halo 3", "value"=>"10", "description"=>"The third Halo game."}}
+  [4;36;1mList Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (359.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Create (0.0ms)[0m   [0;1mINSERT INTO `items` (`updated_at`, `title`, `description`, `value`, `list_id`, `user_id`, `created_at`) VALUES('2009-05-31 22:45:05', 'Halo 3', 'The third Halo game.', 10, 1, NULL, '2009-05-31 22:45:05')[0m
+  [4;35;1mSQL (141.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/lists/1
+Completed in 562ms (DB: 531) | 302 Found [http://localhost/lists/1/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-31 18:45:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 234ms (View: 47, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-31 18:45:17) [GET]
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-31 18:45:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+  [4;35;1mList Load (0.0ms)[0m   [0mSELECT * FROM `lists` WHERE (`lists`.`id` = 1) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.list_id = 1) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/lists/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-31 18:45:22) [GET]
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+Completed in 63ms (View: 31, DB: 0) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#new (for 127.0.0.1 at 2009-05-31 18:45:23) [GET]
+  [4;36;1mList Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Rendering template within layouts/lists
+Rendering lists/new
+Completed in 63ms (View: 32, DB: 15) | 200 OK [http://localhost/lists/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#create (for 127.0.0.1 at 2009-05-31 18:45:43) [POST]
+  Parameters: {"list"=>{"name"=>"CMT Features", "description"=>"CMT Feature request page."}, "commit"=>"Create", "authenticity_token"=>"pScXWCFSnmq6HZMZTzfnxwJegDEIYA6GXMKlXuDX5m0="}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mList Create (0.0ms)[0m   [0mINSERT INTO `lists` (`name`, `updated_at`, `description`, `user_id`, `created_at`) VALUES('CMT Features', '2009-05-31 22:45:43', 'CMT Feature request page.', NULL, '2009-05-31 22:45:43')[0m
+  [4;36;1mSQL (422.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/lists/2
+Completed in 469ms (DB: 422) | 302 Found [http://localhost/lists]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-31 18:45:43) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mList Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 2) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/lists/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-05-31 18:46:27) [POST]
+  Parameters: {"commit"=>"Add Item", "authenticity_token"=>"pScXWCFSnmq6HZMZTzfnxwJegDEIYA6GXMKlXuDX5m0=", "list_id"=>"2", "item"=>{"title"=>"Discipleship Groups", "value"=>"10", "description"=>"The ability to add and manage discipleship groups."}}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (0.0ms)[0m   [0mINSERT INTO `items` (`updated_at`, `title`, `description`, `value`, `list_id`, `user_id`, `created_at`) VALUES('2009-05-31 22:46:27', 'Discipleship Groups', 'The ability to add and manage discipleship groups.', 10, 2, NULL, '2009-05-31 22:46:27')[0m
+  [4;36;1mSQL (454.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/lists/2
+Completed in 500ms (DB: 454) | 302 Found [http://localhost/lists/2/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-31 18:46:28) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 2) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/lists/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2009-05-31 18:46:53) [POST]
+  Parameters: {"commit"=>"Add Item", "authenticity_token"=>"pScXWCFSnmq6HZMZTzfnxwJegDEIYA6GXMKlXuDX5m0=", "list_id"=>"2", "item"=>{"title"=>"Stats", "value"=>"5", "description"=>"The ability to enter stats for users."}}
+  [4;35;1mList Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (0.0ms)[0m   [0mINSERT INTO `items` (`updated_at`, `title`, `description`, `value`, `list_id`, `user_id`, `created_at`) VALUES('2009-05-31 22:46:53', 'Stats', 'The ability to enter stats for users.', 5, 2, NULL, '2009-05-31 22:46:53')[0m
+  [4;36;1mSQL (485.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/lists/2
+Completed in 641ms (DB: 516) | 302 Found [http://localhost/lists/2/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#show (for 127.0.0.1 at 2009-05-31 18:46:54) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mList Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mList Load (0.0ms)[0m   [0;1mSELECT * FROM `lists` WHERE (`lists`.`id` = 2) [0m
+Rendering template within layouts/lists
+Rendering lists/show
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.list_id = 2) [0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendered items/_item (0.0ms)
+Rendered items/_item (0.0ms)
+Completed in 234ms (View: 62, DB: 0) | 200 OK [http://localhost/lists/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListsController#index (for 127.0.0.1 at 2009-05-31 18:46:57) [GET]
+  [4;35;1mList Load (16.0ms)[0m   [0mSELECT * FROM `lists` [0m
+Rendering template within layouts/lists
+Rendering lists/index
+  [4;36;1mList Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `lists`[0m
+Completed in 47ms (View: 15, DB: 16) | 200 OK [http://localhost/lists]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateLists (20090525015409)
+Migrating to CreateItems (20090525015610)
+Migrating to CreateVotes (20090531222937)
+Migrating to CreateComments (20090531223652)
+Migrating to AddItemIdToVotesTable (20090531223755)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `items`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW FIELDS FROM `lists`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `lists`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `lists`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `votes`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `votes`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `votes`[0m
